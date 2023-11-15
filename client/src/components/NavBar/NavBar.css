@@ -1,0 +1,10 @@
+nav {
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    padding: 2vh 1vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

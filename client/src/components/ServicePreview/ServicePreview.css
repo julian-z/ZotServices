@@ -1,0 +1,21 @@
+img {
+    object-fit: cover;
+    width: 75%;
+    border-radius: 2vw;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    margin: 2vh 1vw;
+
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img:hover {
+    opacity: 0.75;
+}
+
+.service-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}

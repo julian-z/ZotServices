@@ -1,0 +1,27 @@
+.sidebar {
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+input {
+    padding: 1vh 1vw;
+    border-radius: 2vw;
+    border-width: 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-category {
+    background-color: rgb(247, 247, 247);
+    border-width: 0;
+    border-radius: 1vw;
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar-category:hover {
+    background-color: rgb(215, 215, 215);
+}
+
+#sidebar-search {
+    width: 100%;
+}
