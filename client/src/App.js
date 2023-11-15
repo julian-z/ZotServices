@@ -12,8 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SearchPage />} />
-        <Route path="/profile/:uid" element={<ProfilePage />} />
         <Route path="/service/:sid" element={<ServicePage />} />
+        <Route path="/profile/:uid" element={<ProfilePage />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>

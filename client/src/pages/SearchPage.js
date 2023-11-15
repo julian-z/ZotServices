@@ -19,8 +19,10 @@ function SearchPage() {
       title: "ZotCutz",
       category: "Beauty",
       location: "Stanford Court",
-      price: "$15",
+      price: 15.0,
       rating: 5.0,
+      description:
+        "Line ups, fades, beards, whatever you need. Message me on Instagram (@zotcutz) for available bookings.",
     },
 
     {
@@ -31,8 +33,10 @@ function SearchPage() {
       title: "Custom Petr Stickers",
       category: "Arts",
       location: "Middle Earth",
-      price: "$2",
+      price: 2.5,
       rating: 4.8,
+      description:
+        "Will design a custom Petr sticker of your choice! Base price is $2.50, will increase if commission is hefty.",
     },
 
     {
@@ -43,8 +47,10 @@ function SearchPage() {
       title: "AntNails",
       category: "Beauty",
       location: "Mesa Court",
-      price: "$20",
+      price: 20.0,
       rating: 4.3,
+      description:
+        "Get your nails done by Priscilla Anteater at the Caballo tower! Message me for bookings and location.",
     },
 
     {
@@ -55,8 +61,10 @@ function SearchPage() {
       title: "Floor Cleaning",
       category: "Cleaning",
       location: "Vista Del Campo Norte",
-      price: "$10",
+      price: 10.0,
       rating: 4.5,
+      description:
+        "Professional floor cleaning services provided by VDCN RAs! Must be a VDCN resident to qualify.",
     },
 
     {
@@ -67,8 +75,10 @@ function SearchPage() {
       title: "Discounted DoorDash",
       category: "Delivery",
       location: "Irvine, CA",
-      price: "$10",
+      price: 5.0,
       rating: 4.3,
+      description:
+        "Send me your DoorDash order and I will deliver it for 75% of the price! Note: $5.00 service fee included.",
     },
 
     {
@@ -79,8 +89,10 @@ function SearchPage() {
       title: "Grocery Delivery",
       category: "Delivery",
       location: "Irvine, CA",
-      price: "$5",
+      price: 5.0,
       rating: 4.9,
+      description:
+        "Delivering groceries from any store in Irvine! Most popular: Target, Albertsons, Costco",
     },
   ];
 
@@ -183,8 +195,8 @@ function SearchPage() {
           }}
         >
           <h5>Sort By</h5>
-          <button className="sidebar-category">Low Price</button>
-          <button className="sidebar-category">High Ratings</button>
+          <button className="sidebar-category">Price</button>
+          <button className="sidebar-category">Ratings</button>
         </div>
 
         <hr></hr>

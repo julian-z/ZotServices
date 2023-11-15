@@ -31,7 +31,7 @@ function ServicePreview(props) {
           }}
           class="service-preview-rating"
         >
-          {props.price}
+          ${props.price.toFixed(2)}
         </p>
         <p
           style={{
@@ -41,7 +41,7 @@ function ServicePreview(props) {
           }}
           class="service-preview-rating"
         >
-          ⭐ {props.rating}
+          ⭐ {props.rating.toFixed(1)}
         </p>
       </div>
 
