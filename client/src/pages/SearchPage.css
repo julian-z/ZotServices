@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(48, 48, 48);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -11,7 +11,8 @@ input {
 }
 
 .sidebar-category {
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(66, 66, 66);
+    color: white;
     border-width: 0;
     border-radius: 1vw;
     margin: 0.25vh 0vw;
@@ -21,7 +22,7 @@ input {
 }
 
 .sidebar-category:hover {
-    background-color: rgb(215, 215, 215);
+    background-color: rgb(104, 104, 104);
 }
 
 #sidebar-search {
@@ -40,4 +41,19 @@ background-color: transparent;
 }
 .sidebar::-webkit-scrollbar-track {
 background-color: transparent;
+}
+
+.loading-spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top: 3px solid rgb(182, 155, 35);
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

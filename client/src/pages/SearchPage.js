@@ -3,7 +3,13 @@ import "./SearchPage.css";
 import NavBar from "../components/NavBar/NavBar";
 import ServicePreview from "../components/ServicePreview/ServicePreview";
 
+// Search page - allows browsing through services
+// TODO:
+//  - Implement sorting/filtering
+//  - Connect to API
+//  - Implement infinite scrolling
 function SearchPage() {
+  // TODO: Use SQL data instead of hardcoded examples
   const services = [
     {
       sid: 1,
@@ -33,7 +39,7 @@ function SearchPage() {
       sid: 3,
       uid: 3,
       image:
-        "https://cdn.discordapp.com/attachments/1174181819793539182/1174410887340228638/image.png?ex=65677e5f&is=6555095f&hm=76fa68c43b1b9e2490f7eb03671d946f634adf2522bff481d78c867e3887e2c6&",
+        "https://cdn.discordapp.com/attachments/1174181819793539182/1174461365931487242/image.png?ex=6567ad62&is=65553862&hm=6257ad854e8c8a2521373cd30106305215f070968e838d822ba77693884176f5&",
       title: "AntNails",
       category: "Beauty",
       location: "Mesa Court",
@@ -78,14 +84,21 @@ function SearchPage() {
     },
   ];
 
+  // TODO: Use React hooks to keep track of filters, query, categories, locations
+  // ...
+
   return (
     <div className="row">
       <NavBar></NavBar>
 
+      {/* Services grid is in a Bootstrap col-9 */}
       <div
         className="col-9 services-grid"
         style={{
           padding: "2vh 2vw",
+          backgroundColor: "rgb(8, 68, 114)",
+          color: "white",
+          height: "125vh",
         }}
       >
         <h2>All Services</h2>
@@ -99,6 +112,7 @@ function SearchPage() {
             alignItems: "flex-start",
           }}
         >
+          {/* Maps all services to a ServicePreview */}
           {services.map((service) => {
             return (
               <ServicePreview
@@ -113,9 +127,27 @@ function SearchPage() {
               ></ServicePreview>
             );
           })}
+
+          {/* TODO: Infinite scrolling */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "1vw",
+              width: "100%",
+            }}
+          >
+            <p style={{ margin: "0", padding: "10vh 0", fontWeight: "500" }}>
+              Loading more services...
+            </p>
+            <div className="loading-spinner"></div>
+          </div>
         </div>
       </div>
 
+      {/* Sidebar (browse, filter, etc) is in a col-3 to the right side */}
       <div
         className="col-3 sidebar"
         style={{
@@ -126,10 +158,12 @@ function SearchPage() {
           top: "10vh",
           right: 0,
           height: "500vh",
+          color: "white",
         }}
       >
         <h4>Browse 🔎</h4>
 
+        {/* Search bar */}
         <form>
           <input
             placeholder="Search by title..."
@@ -140,6 +174,7 @@ function SearchPage() {
 
         <hr></hr>
 
+        {/* Sort by */}
         <div
           style={{
             display: "flex",
@@ -154,6 +189,7 @@ function SearchPage() {
 
         <hr></hr>
 
+        {/* Category filter */}
         <div
           style={{
             display: "flex",
@@ -175,6 +211,7 @@ function SearchPage() {
 
         <hr></hr>
 
+        {/* Location filter */}
         <div
           style={{
             display: "flex",

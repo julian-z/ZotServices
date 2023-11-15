@@ -1,8 +1,8 @@
 img {
     object-fit: cover;
-    width: 75%;
+    width: 85%;
     border-radius: 2vw;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     margin: 2vh 1vw;
 
     opacity: 1;
@@ -17,12 +17,13 @@ img:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .service-preview-rating {
-    background-color: rgb(243, 243, 243);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    background-color: rgb(68, 148, 197);
+    color: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     padding: 0 1vw;
     border-radius: 1vw;
 }
