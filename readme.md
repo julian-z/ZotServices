@@ -1,4 +1,2 @@
-# WebJam 2023
-- Julian Zulfikar, Simon Cao, Manjot Singh, Alvin Phan
-
-## LETS GOOOOOOOOOOOOOOOOOOOOO
+# ZotServices
+Developed by Julian Zulfikar, Simon Cao, Manjot Singh, Alvin Phan for WebJam 2023.
