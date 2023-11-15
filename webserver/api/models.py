@@ -19,7 +19,7 @@ class User(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=10)
     rating = models.DecimalField(max_digits=2, decimal_places=1, validators=[
-                                 MinValueValidator(0), MaxValueValidator(5)], default = 0)
+                                 MinValueValidator(0), MaxValueValidator(5)], default=0)
     username = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
     date_joined = models.DateField()
@@ -56,7 +56,7 @@ class Service(models.Model):
     location = models.CharField(max_length=30)
     pricing = models.DecimalField(max_digits=10, decimal_places=2)
     rating_service = models.DecimalField(max_digits=2, decimal_places=1, validators=[
-                                         MinValueValidator(0), MaxValueValidator(5)], default = 0])
+                                         MinValueValidator(0), MaxValueValidator(5)], default=0)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     date_posted = models.DateField()
