@@ -127,7 +127,7 @@ function ServicePage() {
   ];
 
   return (
-    <div>
+    <div style={{ backgroundColor: "rgb(48, 48, 48)" }}>
       <NavBar></NavBar>
 
       {/* Service Page container */}
