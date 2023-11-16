@@ -62,16 +62,7 @@ class Service(models.Model):
     description = models.TextField()
     category= models.CharField(choices=options, max_length=30)
 
-    def _get_avg_rating(self):
-        sum = 0
-        ratings = Review.objects.filter(service=self)
-        for rating in ratings:
-            sum += rating.rating
-        if len(ratings) > 0:
-            return sum / len(ratings)
-        else:
-            return 0
-    avg_rating = property(_get_avg_rating)
+    
 
 
 class Review(models.Model):

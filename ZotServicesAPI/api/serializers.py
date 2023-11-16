@@ -17,7 +17,7 @@ class ServiceSerializer(serializers.ModelSerializer):
     ratings = ReviewSerializer(many=True)
     class Meta:
         model= Service
-        fields= ('id','user', 'image', 'title', 'location', 'spec_location', 'pricing', 'description', 'category', 'ratings', 'avg_rating')
+        fields= ('id','user', 'image', 'title', 'location', 'spec_location', 'pricing', 'description', 'category', 'ratings')
     
 
 class CustomUserSerializer(serializers.ModelSerializer):
