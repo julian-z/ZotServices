@@ -207,7 +207,7 @@ function ServicePage() {
               Contact
             </a>
 
-            {/* TODO: Report functionality */}
+            {/* TODO: Report service functionality */}
             <a
               className="sidebar-category"
               href={"/profile/" + service["uid"]}
