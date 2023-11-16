@@ -1,0 +1,26 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+
+    padding: 2vh 2vw;
+}
+
+.profile-page-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    background-color: rgb(48, 48, 48);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 2vh 2vw 3vh 2vw;
+    width: 100%;
+}
+
+.profile-page-services {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 2vh 2vw
+}
