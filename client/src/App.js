@@ -4,6 +4,8 @@ import "./App.css";
 import SearchPage from "./pages/SearchPage";
 import ProfilePage from "./pages/ProfilePage";
 import ServicePage from "./pages/ServicePage";
+import CreatePage from "./pages/CreatePage";
+import AboutPage from "./pages/AboutPage";
 // import FavoritesPage from "./pages/FavoritesPage";
 import NoPage from "./pages/NoPage";
 
@@ -14,6 +16,8 @@ function App() {
         <Route path="/" element={<SearchPage />} />
         <Route path="/service/:sid" element={<ServicePage />} />
         <Route path="/profile/:uid" element={<ProfilePage />} />
+        <Route path="/create" element={<CreatePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>

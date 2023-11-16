@@ -21,15 +21,23 @@ function NavBar() {
             Search
           </a>
           |
-          <a class="btn" style={{ color: "white", fontWeight: "500" }} href="/">
+          {/* <a class="btn" style={{ color: "white", fontWeight: "500" }} href="/">
             Favorites
           </a>
-          |
-          <a class="btn" style={{ color: "white", fontWeight: "500" }} href="/">
+          | */}
+          <a
+            class="btn"
+            style={{ color: "white", fontWeight: "500" }}
+            href="/create"
+          >
             Create
           </a>
           |
-          <a class="btn" style={{ color: "white", fontWeight: "500" }} href="/">
+          <a
+            class="btn"
+            style={{ color: "white", fontWeight: "500" }}
+            href="/about"
+          >
             About
           </a>
         </li>

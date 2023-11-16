@@ -1,9 +1,10 @@
 .service-page {
     display: flex;
     flex-direction: column;
-    gap: 2vh;
-
-    padding: 2vh 2vw;
+    justify-content: center;
+    align-items: center;
+    /* gap: 3vh;
+    margin-bottom: 3vh; */
 }
 
 .service-page-details {
@@ -12,8 +13,8 @@
     justify-content: center;
 
     background-color: rgb(48, 48, 48);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-    border-radius: 1vw;
+    /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); */
+    /* border-radius: 1vw; */
     padding: 2vh 2vw 3vh 2vw;
     width: 100%;
 }
@@ -25,8 +26,8 @@
     gap: 1vh;
 
     background-color: rgb(48, 48, 48);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-    border-radius: 1vw;
+    /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); */
+    /* border-radius: 1vw; */
     padding: 2vh 2vw 3vh 2vw;
     width: 100%;
 }

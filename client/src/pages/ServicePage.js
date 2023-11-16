@@ -238,6 +238,7 @@ function ServicePage() {
         {/* TODO: Call API to get reviews and populate HTML */}
         {/* TODO: Review submit functionality -> send to DB */}
         <div className="service-page-reviews">
+          <hr></hr>
           <h2>Reviews for "{service["title"]}"</h2>
           <h5>
             Rating:{" "}
