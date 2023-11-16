@@ -27,3 +27,9 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model= CustomUser
         fields= ('user', 'phone', 'first_name', 'last_name', 'email', 'services', 'reviews')
+
+class CreateServiceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Service
+        fields = ('user', 'image', 'title', 'location', 'spec_location',
+                  'pricing', 'description', 'category')
