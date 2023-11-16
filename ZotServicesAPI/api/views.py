@@ -5,6 +5,9 @@ from .serializers import CustomUserSerializer, ServiceSerializer, ReviewSerializ
 from django.http import JsonResponse
 from django.db.models import Avg, Count
 from django.db.models.functions import Coalesce
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status, generics
 # Create your views here.
 
 class CustomUserViewSet(viewsets.ModelViewSet):
@@ -36,18 +39,18 @@ class ServiceViewSet(viewsets.ModelViewSet):
                 fentries = fentries.filter(**{field: request.GET[field]})
         serializer = ServiceSerializer(fentries, many=True)
         return JsonResponse(serializer.data, safe=False)
-    class CreateServiceView(APIView):
-        serializer_class = CreateServiceSerializer
+class CreateServiceView(APIView):
+    serializer_class = CreateServiceSerializer
 
-        def post(self, request, format=None):
-            serializer = CreateServiceSerializer(data=request.data)
-            if serializer.is_valid():
-                service_data = serializer.validated_data
-                service = Service.objects.create(user=service_data['user'], image=service_data['image'], title=service_data['title'], location=service_data['location'],
-                                                spec_location=service_data['spec_location'], pricing=service_data['pricing'], description=service_data['description'], category=service_data['category'])
-                return Response(ServiceSerializer(service).data, status=status.HTTP_201_CREATED)
-            else:
-                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request, format=None):
+        serializer = CreateServiceSerializer(data=request.data)
+        if serializer.is_valid():
+            service_data = serializer.validated_data
+            service = Service.objects.create(user=service_data['user'], image=service_data['image'], title=service_data['title'], location=service_data['location'],
+                                            spec_location=service_data['spec_location'], pricing=service_data['pricing'], description=service_data['description'], category=service_data['category'])
+            return Response(ServiceSerializer(service).data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 """
 def ServiceCategory(request):
