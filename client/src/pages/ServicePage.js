@@ -189,15 +189,10 @@ function ServicePage() {
               Category:{" "}
               <span style={{ fontWeight: "400" }}>{service["category"]}</span>
             </h6>
-
-            <hr></hr>
-
             <p>
               <span style={{ fontWeight: "500" }}>Description</span>:{" "}
               {service["description"]}
             </p>
-
-            <hr></hr>
 
             <a
               className="sidebar-category"
