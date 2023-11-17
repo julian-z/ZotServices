@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(8, 68, 114);
+}
+
 .sidebar {
     background-color: rgb(48, 48, 48);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);

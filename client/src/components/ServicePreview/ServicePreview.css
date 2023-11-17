@@ -27,3 +27,10 @@ img:hover {
     padding: 0 1vw;
     border-radius: 1vw;
 }
+
+/* MOBILE DEVICES */
+@media (max-width: 768px) {
+    .service-preview-rating {
+        font-size: 0.5rem !important;
+    }
+}

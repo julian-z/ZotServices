@@ -43,3 +43,19 @@ select {
 #review-text {
     width: 100%;
 }
+
+#service-img {
+    width: 30vw;
+}
+
+/* MOBILE DEVICES */
+@media (max-width: 768px) {
+    .service-page-details {
+        flex-direction: column-reverse;
+    }
+
+    #service-img {
+        width: auto;
+        height: 50vh;
+    }
+}

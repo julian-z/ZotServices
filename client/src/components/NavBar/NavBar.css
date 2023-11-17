@@ -8,3 +8,14 @@ nav {
     justify-content: space-between;
     align-items: center;
 }
+
+.mobile-dropdown {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(48, 48, 48);
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
