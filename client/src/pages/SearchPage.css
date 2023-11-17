@@ -21,6 +21,10 @@ input {
     transition: background-color 0.2s ease-in-out;
 }
 
+.sidebar-category.active {
+    background-color: rgb(104, 104, 104);
+}
+
 .sidebar-category:hover {
     background-color: rgb(104, 104, 104);
 }
