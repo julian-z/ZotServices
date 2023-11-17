@@ -9,6 +9,7 @@ router.register('users', CustomUserViewSet)
 router.register('services', ServiceViewSet)
 router.register('reviews', ReviewViewSet)
 
+
 urlpatterns = [
     path('', include(router.urls)),
     path('Createservices/', CreateServiceView.as_view(), name='create-service')
