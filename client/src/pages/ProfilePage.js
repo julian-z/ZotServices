@@ -48,7 +48,8 @@ function ProfilePage() {
 
             <h4>Contact</h4>
             <h6>
-              E-Mail: <span style={{ fontWeight: "400" }}>{user["email"]}</span>
+              E-Mail:{" "}
+              <span style={{ fontWeight: "400" }}>{user["user"]["email"]}</span>
             </h6>
             <h6>
               Phone: <span style={{ fontWeight: "400" }}>{user["phone"]}</span>

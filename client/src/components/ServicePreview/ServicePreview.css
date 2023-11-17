@@ -1,3 +1,16 @@
+.price-rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+    margin: 0;
+}
+
+.price-rating p {
+    margin: 0;
+}
+
 img {
     object-fit: cover;
     width: 85%;
@@ -30,7 +43,9 @@ img:hover {
 
 /* MOBILE DEVICES */
 @media (max-width: 768px) {
-    .service-preview-rating {
-        font-size: 0.5rem !important;
+    .price-rating {
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 5px;
     }
 }

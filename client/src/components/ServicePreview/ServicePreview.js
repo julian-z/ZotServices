@@ -13,20 +13,11 @@ function ServicePreview(props) {
       <img src={props.image} alt="Service Preview"></img>
 
       {/* Price and rating */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "88%",
-          margin: "0",
-        }}
-      >
+      <div className="price-rating">
         <p
           style={{
             fontWeight: "500",
-            margin: "0 0 0 1vw",
+            // margin: "0 0 0 1vw",
             fontSize: "0.75rem",
           }}
           class="service-preview-rating"
@@ -36,7 +27,7 @@ function ServicePreview(props) {
         <p
           style={{
             fontWeight: "500",
-            margin: "0 1vw 0 0",
+            // margin: "0 1vw 0 0",
             fontSize: "0.75rem",
           }}
           class="service-preview-rating"
