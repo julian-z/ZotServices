@@ -15,11 +15,11 @@ class CustomUser(models.Model):
     date joined: date,
     last active: date
     '''
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField()
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, null=True, blank=True)
     phone = models.CharField(max_length=10)
+    profile_pic = models.ImageField(
+        upload_to='profile_images/', default='profile_images/default.png')
 
 
 class Service(models.Model):
@@ -53,16 +53,19 @@ class Service(models.Model):
         ('campus', 'campus'),
         ('other', 'other'),
     ]
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True, related_name='services')
+    user = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, null=True, blank=True, related_name='services')
     image = models.ImageField(upload_to='service_images/')
     title = models.CharField(max_length=30)
     location = models.CharField(choices=places, max_length=30)
     spec_location = models.CharField(max_length=30, null=True, blank=True)
     pricing = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
-    category= models.CharField(choices=options, max_length=30)
+    category = models.CharField(choices=options, max_length=30)
 
-    
+    @property
+    def user_name(self):
+        return self.user.user.username
 
 
 class Review(models.Model):
@@ -72,13 +75,18 @@ class Review(models.Model):
     rating: decimal between 0 and 5,
     comment: string
     '''
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='reviews')
-    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='ratings')
+    user = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name='reviews')
+    service = models.ForeignKey(
+        Service, on_delete=models.CASCADE, related_name='ratings')
     rating = models.DecimalField(max_digits=2, decimal_places=1,
-                                validators=[MinValueValidator(0), MaxValueValidator(5)])
-    
+                                 validators=[MinValueValidator(0), MaxValueValidator(5)])
     comment = models.TextField()
+
+    @property
+    def user_name(self):
+        return self.user.user.username
+
     class Meta:
         unique_together = (('user', 'service'), )
         index_together = (('user', 'service'), )
-
