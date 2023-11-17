@@ -137,6 +137,7 @@ function SearchPage() {
                 location={service["spec_location"]}
                 price={parseFloat(service["pricing"])}
                 rating={calculateRating(service)}
+                numReviews={service["ratings"].length}
               ></ServicePreview>
             );
           })}

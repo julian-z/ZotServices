@@ -10,7 +10,7 @@ function Review(props) {
         href={"/profile/" + props.uid}
         style={{ textDecoration: "none", color: "white" }}
       >
-        <h5>Peter Anteater</h5>
+        <h5>@{props.uid}</h5>
       </a>
 
       <div

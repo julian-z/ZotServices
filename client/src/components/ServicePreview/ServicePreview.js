@@ -41,7 +41,7 @@ function ServicePreview(props) {
           }}
           class="service-preview-rating"
         >
-          ⭐ {props.rating.toFixed(1)}
+          ⭐ {props.rating.toFixed(1)} ({props.numReviews})
         </p>
       </div>
 
