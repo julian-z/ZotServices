@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./SearchPage.css";
 import NavBar from "../components/NavBar/NavBar";
 import ServicePreview from "../components/ServicePreview/ServicePreview";
-import { ENDPOINT_URL } from "./Constants";
+import { fetchFromDjango } from "./Helpers";
 
 // Search page - allows browsing through services
 // TODO:
@@ -102,19 +102,16 @@ function SearchPage() {
   // const [category, setCategory] = useState("all");
 
   useEffect(() => {
-    // DEBUG
-    console.log(`${ENDPOINT_URL}/services`);
-
-    fetch(`${ENDPOINT_URL}/services`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
+    const fetchData = async (endpoint) => {
+      try {
+        const data = await fetchFromDjango(endpoint);
         setServices(data);
-      });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData("/services/");
   }, []);
 
   return (
@@ -128,7 +125,7 @@ function SearchPage() {
           padding: "2vh 2vw",
           backgroundColor: "rgb(8, 68, 114)",
           color: "white",
-          height: "125vh",
+          height: "100vh",
         }}
       >
         <h2>All Services</h2>
@@ -146,20 +143,21 @@ function SearchPage() {
           {services.map((service) => {
             return (
               <ServicePreview
-                sid={service["sid"]}
-                uid={service["uid"]}
+                sid={service["id"]}
+                uid={service["user"]}
                 image={service["image"]}
                 title={service["title"]}
                 category={service["category"]}
                 location={service["location"]}
-                price={service["price"]}
-                rating={service["rating"]}
+                price={parseFloat(service["pricing"])}
+                // rating={service["rating"]} // TODO: dynamic ratings
+                rating={0}
               ></ServicePreview>
             );
           })}
 
           {/* TODO: Infinite scrolling */}
-          <div
+          {/* <div
             style={{
               display: "flex",
               flexDirection: "row",
@@ -173,7 +171,7 @@ function SearchPage() {
               Loading more services...
             </p>
             <div className="loading-spinner"></div>
-          </div>
+          </div> */}
         </div>
       </div>
 
