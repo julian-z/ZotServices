@@ -12,5 +12,7 @@ router.register('reviews', ReviewViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    # path('Createrealservice/', CreateRealServiceView.as_view(),
+    #      name='create-real-service'),
     path('Createservices/', CreateServiceView.as_view(), name='create-service')
 ]

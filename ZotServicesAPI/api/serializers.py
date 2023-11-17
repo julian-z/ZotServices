@@ -37,5 +37,5 @@ class CustomUserSerializer(serializers.ModelSerializer):
 class CreateServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
-        fields = ('user', 'image', 'title', 'location', 'spec_location',
+        fields = ('image', 'title', 'location', 'spec_location',
                   'pricing', 'description', 'category')
