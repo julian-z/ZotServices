@@ -5,12 +5,11 @@ import "./Review.css";
 function Review(props) {
   return (
     <div className="review">
-      {/* TODO: Populate line 13 with uid name */}
       <a
         href={"/profile/" + props.uid}
         style={{ textDecoration: "none", color: "white" }}
       >
-        <h5>@{props.uid}</h5>
+        <h5>@{props.username}</h5>
       </a>
 
       <div

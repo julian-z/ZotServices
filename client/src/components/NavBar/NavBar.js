@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavBar.css";
+import headerLogo from "../../static/zotservices.png";
 
 // NavBar - nav bar which is applied to the top of every page
 function NavBar() {
@@ -11,7 +12,15 @@ function NavBar() {
         style={{ color: "white", fontWeight: "500", padding: "0 1vw" }}
         href="/"
       >
-        ⚒️ ZotServices
+        <img
+          src={headerLogo}
+          alt={"ZotServices"}
+          style={{
+            width: "auto",
+            height: "7vh",
+            boxShadow: "none",
+          }}
+        ></img>
       </a>
 
       {/* Navigation */}

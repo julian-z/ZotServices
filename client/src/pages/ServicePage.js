@@ -75,7 +75,9 @@ function ServicePage() {
             >
               <h4>
                 Posted by:{" "}
-                <span style={{ fontWeight: "400" }}>@{service["user_name"]}</span>
+                <span style={{ fontWeight: "400" }}>
+                  @{service["user_name"]}
+                </span>
               </h4>
             </a>
 
@@ -197,7 +199,8 @@ function ServicePage() {
           {service["ratings"].map((review) => {
             return (
               <Review
-                uid={review["user_name"]}
+                uid={review["user"]}
+                username={review["user_name"]}
                 rating={parseFloat(review["rating"])}
                 comment={review["comment"]}
               ></Review>
