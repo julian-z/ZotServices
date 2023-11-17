@@ -1,58 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import "./ProfilePage.css";
 import NavBar from "../components/NavBar/NavBar";
 import ServicePreview from "../components/ServicePreview/ServicePreview";
+import { fetchFromDjango, calculateRating, formatCategory } from "./Helpers";
+import { ENDPOINT_URL, EMPTY_USER } from "./Constants";
 
 // Profile page - displays the seller/buyer account and their public information
 function ProfilePage() {
   const { uid } = useParams();
+  const [user, setUser] = useState(EMPTY_USER);
 
-  // TODO: Placeholder services
-  const services = [
-    {
-      sid: 2,
-      uid: 2,
-      image:
-        "https://cdn.discordapp.com/attachments/1174181819793539182/1174411181625180182/image.png?ex=65677ea5&is=655509a5&hm=40f1f7ba08b47a1b74231bfde9a55987abab3d0114a2be8dc13b31af254d22e0&",
-      title: "Custom Petr Stickers",
-      category: "Arts",
-      location: "Middle Earth",
-      price: 2.5,
-      rating: 4.8,
-      description:
-        "Will design a custom Petr sticker of your choice! Base price is $2.50, will increase if commission is hefty.",
-    },
-
-    {
-      sid: 3,
-      uid: 3,
-      image:
-        "https://cdn.discordapp.com/attachments/1174181819793539182/1174461365931487242/image.png?ex=6567ad62&is=65553862&hm=6257ad854e8c8a2521373cd30106305215f070968e838d822ba77693884176f5&",
-      title: "AntNails",
-      category: "Beauty",
-      location: "Mesa Court",
-      price: 20.0,
-      rating: 4.3,
-      description:
-        "Get your nails done by Priscilla Anteater at the Caballo tower! Message me for bookings and location.",
-    },
-
-    {
-      sid: 4,
-      uid: 4,
-      image:
-        "https://cdn.discordapp.com/attachments/1174181819793539182/1174410610306461737/image.png?ex=65677e1c&is=6555091c&hm=c488d8cc30ab938741f8cb63f841ec5f584211674c51306b1ab3a43686fea4ff&",
-      title: "Floor Cleaning",
-      category: "Cleaning",
-      location: "Vista Del Campo Norte",
-      price: 10.0,
-      rating: 4.5,
-      description:
-        "Professional floor cleaning services provided by VDCN RAs! Must be a VDCN resident to qualify.",
-    },
-  ];
+  useEffect(() => {
+    // Asynchronously fetch the data of /users/:uid
+    const fetchData = async (endpoint) => {
+      try {
+        const data = await fetchFromDjango(endpoint);
+        setUser(data);
+      } catch (error) {
+        console.error("ERROR FETCHING DATA:", error);
+      }
+    };
+    console.log(ENDPOINT_URL + `/users/${uid}/`);
+    fetchData(`/users/${uid}/`);
+  }, [uid]);
 
   return (
     <div>
@@ -68,20 +40,20 @@ function ProfilePage() {
           ></img>
 
           <div>
-            {/* TODO: Replace with name of user uid */}
-            <h2>Peter Anteater</h2>
-            <h6>@peterant</h6>
+            <h2>
+              {user.first_name} {user.last_name}
+            </h2>
+            <h6>@{user["user"]["username"]}</h6>
 
             <hr></hr>
 
-            {/* TODO: Replace with contact info */}
             <h4>Contact</h4>
             <h6>
-              E-Mail:{" "}
-              <span style={{ fontWeight: "400" }}>panteater@uci.edu</span>
+              E-Mail: <span style={{ fontWeight: "400" }}>{user["email"]}</span>
             </h6>
             <h6>
-              Instagram: <span style={{ fontWeight: "400" }}>@pete_eats</span>
+              Phone Number:{" "}
+              <span style={{ fontWeight: "400" }}>{user["phone"]}</span>
             </h6>
 
             <hr></hr>
@@ -103,19 +75,19 @@ function ProfilePage() {
 
         {/* Services offered by user */}
         <div className="profile-page-services">
-          {/* TODO: Replace with user's services */}
           {/* Maps all services to a ServicePreview */}
-          {services.map((service) => {
+          {user["services"].map((service) => {
             return (
               <ServicePreview
-                sid={service["sid"]}
-                uid={service["uid"]}
+                sid={service["id"]}
+                uid={service["user"]}
                 image={service["image"]}
                 title={service["title"]}
-                category={service["category"]}
-                location={service["location"]}
-                price={service["price"]}
-                rating={service["rating"]}
+                category={formatCategory(service["category"])}
+                location={service["spec_location"]}
+                price={parseFloat(service["pricing"])}
+                rating={calculateRating(service)}
+                numReviews={service["ratings"].length}
               ></ServicePreview>
             );
           })}
