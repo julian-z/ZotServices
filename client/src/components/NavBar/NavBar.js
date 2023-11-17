@@ -12,6 +12,7 @@ function NavBar() {
 
   const handleResize = () => {
     setMobile(window.innerWidth <= 768);
+    setShowingDrop(false);
   };
   useEffect(() => {
     window.addEventListener("resize", handleResize);

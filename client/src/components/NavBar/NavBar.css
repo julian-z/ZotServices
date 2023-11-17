@@ -16,6 +16,15 @@ nav {
     border-color: black;
     border-style: solid;
     border-width: 2px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
     z-index: 999;
+}
+
+.mobile-dropdown .btn {
+    border-radius: 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.mobile-dropdown .btn:hover {
+    background-color: rgb(107, 107, 107);
 }

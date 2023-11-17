@@ -54,9 +54,22 @@ function ServicePreview(props) {
           width: "88%",
         }}
       >
-        <p style={{ fontWeight: "400", margin: "0 0 0 1vw" }}>{props.title}</p>
         <p
-          style={{ fontWeight: "300", fontSize: "0.8rem", margin: "0 0 0 1vw" }}
+          style={{
+            fontWeight: "400",
+            fontSize: "1.4rem",
+            margin: "0 0 0 1vw",
+          }}
+        >
+          {props.title}
+        </p>
+        <p
+          style={{
+            fontWeight: "300",
+            fontSize: "1rem",
+            margin: "0 0 0 1vw",
+            padding: 0,
+          }}
         >
           {props.location}
         </p>

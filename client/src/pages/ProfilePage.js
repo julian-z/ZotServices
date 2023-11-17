@@ -40,7 +40,7 @@ function ProfilePage() {
 
           <div>
             <h2>
-              {user.first_name} {user.last_name}
+              {user["user"]["first_name"]} {user["user"]["last_name"]}
             </h2>
             <h6>@{user["user"]["username"]}</h6>
 
