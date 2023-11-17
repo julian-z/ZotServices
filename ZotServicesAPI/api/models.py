@@ -3,15 +3,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Image(models.Model):
-    image_file = models.ImageField()
-
-    @property
-    def get_image_url(self) -> str:
-        if self.image_file and hasattr(self.image_file, 'url'):
-            return f"http://localhost:8000{self.image_file.url}"
-
-
 class CustomUser(models.Model):
     '''
     first name: string,

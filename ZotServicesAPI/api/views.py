@@ -60,6 +60,7 @@ class ServiceViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['post'])
     def create_service(self, request, pk=None):
         if 'image' in request.data and 'title' in request.data and 'location' in request.data and 'pricing' in request.data and 'description' in request.data and 'category' in request.data and 'spec_location' in request.data:
+            print(request)
             image = request.data['image']
             title = request.data['title']
             location = request.data['location']

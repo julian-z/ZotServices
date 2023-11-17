@@ -2,23 +2,49 @@ import React, { useState } from "react";
 
 import "./CreatePage.css";
 import NavBar from "../components/NavBar/NavBar";
+import { useCookies } from 'react-cookie';
 
 function CreatePage() {
+  const [token] = useCookies(['mr-token'])
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
-  const [locationName, setLocationName] = useState("");
+  const [spec_location, setLocationName] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0.0);
   const [image, setImage] = useState(null);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const formDataToSend = new FormData();
+    formDataToSend.append('title', title);
+    console.log(formDataToSend);
+    formDataToSend.append('location', location);
+    formDataToSend.append('image', image, image.name);
+    formDataToSend.append('spec_location', spec_location);
+    formDataToSend.append('category', category);
+    formDataToSend.append('description', description);
+    formDataToSend.append('price', price);
+
+    try {
+      fetch('http://localhost:8000/api/services/1/create_service/', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Token ${token['mr-token']}`
+
+        },
+        body: formDataToSend,
+      })
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error, e.g., show an error message
+    }
     console.log("Form submitted:", {
       title,
       location,
-      locationName,
+      spec_location,
       category,
       description,
       price,
@@ -35,7 +61,7 @@ function CreatePage() {
       <NavBar></NavBar>
 
       <div className="create-page">
-        <form className="create-page-form" onSubmit={handleSubmit}>
+        <form className="create-page-form" onSubmit={handleSubmit} encType="multipart/form-data">
           <h1>Create a Service</h1>
 
           <hr></hr>
@@ -91,11 +117,11 @@ function CreatePage() {
 
             <div className="create-page-label-input col-8">
               {/* Input for location name (e.g., Middle Earth) */}
-              <label htmlFor="locationName">Specific Location:</label>
+              <label htmlFor="spec_location">Specific Location:</label>
               <input
                 type="text"
-                id="locationName"
-                value={locationName}
+                id="spec_location"
+                value={spec_location}
                 onChange={(e) => setLocationName(e.target.value)}
                 placeholder="Mesa Court, Middle Earth, Stanford Court..."
               />
