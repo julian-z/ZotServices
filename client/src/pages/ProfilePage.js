@@ -34,7 +34,7 @@ function ProfilePage() {
         <div className="profile-page-details">
           {/* TODO: Replace with image of user uid */}
           <img
-            src="https://cdn.discordapp.com/attachments/1174181819793539182/1174506430141837402/image.png?ex=6567d75a&is=6555625a&hm=1f2dbea067d124024d4194549774a65063e000e77ede664afb552593259a6763&"
+            src={user['profile_pic']}
             alt="Profile Avatar"
             style={{ width: "20vw" }}
           ></img>

@@ -3,6 +3,15 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class Image(models.Model):
+    image_file = models.ImageField()
+
+    @property
+    def get_image_url(self) -> str:
+        if self.image_file and hasattr(self.image_file, 'url'):
+            return f"http://localhost:8000{self.image_file.url}"
+
+
 class CustomUser(models.Model):
     '''
     first name: string,
@@ -19,7 +28,7 @@ class CustomUser(models.Model):
         User, on_delete=models.CASCADE, null=True, blank=True)
     phone = models.CharField(max_length=10)
     profile_pic = models.ImageField(
-        upload_to='profile_images/', default='profile_images/default.png')
+        upload_to='service_images/', default='service_images/default.png')
 
 
 class Service(models.Model):
