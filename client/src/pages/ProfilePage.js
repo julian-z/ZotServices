@@ -32,11 +32,10 @@ function ProfilePage() {
 
       <div>
         <div className="profile-page-details">
-          {/* TODO: Replace with image of user uid */}
           <img
-            src={user['profile_pic']}
+            src={user["profile_pic"]}
             alt="Profile Avatar"
-            style={{ width: "20vw" }}
+            id="profile-pic"
           ></img>
 
           <div>
@@ -52,8 +51,7 @@ function ProfilePage() {
               E-Mail: <span style={{ fontWeight: "400" }}>{user["email"]}</span>
             </h6>
             <h6>
-              Phone Number:{" "}
-              <span style={{ fontWeight: "400" }}>{user["phone"]}</span>
+              Phone: <span style={{ fontWeight: "400" }}>{user["phone"]}</span>
             </h6>
 
             <hr></hr>
@@ -72,6 +70,8 @@ function ProfilePage() {
             </a>
           </div>
         </div>
+
+        <hr></hr>
 
         {/* Services offered by user */}
         <div className="profile-page-services">

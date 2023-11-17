@@ -128,11 +128,7 @@ function ServicePage() {
           </div>
 
           {/* Right side of details: thumbnail */}
-          <img
-            src={service.image}
-            alt="Service Preview"
-            style={{ width: "30vw" }}
-          ></img>
+          <img src={service.image} alt="Service Preview" id="service-img"></img>
         </div>
 
         {/* Reviews */}
@@ -206,7 +202,6 @@ function ServicePage() {
               ></Review>
             );
           })}
-          <div style={{ height: "100vh" }}></div>
         </div>
       </div>
     </div>

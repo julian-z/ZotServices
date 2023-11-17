@@ -4,9 +4,31 @@ import NavBar from "../components/NavBar/NavBar";
 import ServicePreview from "../components/ServicePreview/ServicePreview";
 import { fetchFromDjango, calculateRating, formatCategory } from "./Helpers";
 import { ENDPOINT_URL } from "./Constants";
+import openBrowse from "../static/openbrowse.png";
+import closeBrowse from "../static/closebrowse.png";
 
 // Search page - allows browsing through services
 function SearchPage() {
+  // -----------------------------------------------------------
+  // FOR MOBILE DESIGN
+  const [MOBILE, setMobile] = useState(window.innerWidth <= 768);
+  const [showingBrowse, setShowingBrowse] = useState(false);
+
+  const handleResize = () => {
+    setMobile(window.innerWidth <= 768);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  function handleMobileBrowseClick() {
+    setShowingBrowse(!showingBrowse);
+  }
+  // -----------------------------------------------------------
+
   const [services, setServices] = useState([]);
   const [category, setCategory] = useState("all");
   const [location, setLocation] = useState("all");
@@ -108,12 +130,13 @@ function SearchPage() {
 
       {/* Services grid is in a Bootstrap col-9 */}
       <div
-        className="col-9 services-grid"
+        className={MOBILE ? "col-12 services-grid" : "col-9 services-grid"}
         style={{
           padding: "2vh 2vw",
           backgroundColor: "rgb(8, 68, 114)",
           color: "white",
-          height: "100vh",
+          height: "auto",
+          minHeight: "100vh",
         }}
       >
         <div
@@ -167,7 +190,7 @@ function SearchPage() {
         </div>
       </div>
 
-      {/* Sidebar (browse, filter, etc) is in a col-3 to the right side */}
+      {/* Sidebar (DESKTOP - fixed position) */}
       <div
         className="col-3 sidebar"
         style={{
@@ -179,11 +202,12 @@ function SearchPage() {
           right: 0,
           height: "500vh",
           color: "white",
+          display: MOBILE ? "none" : "block",
         }}
       >
         <h4>Browse 🔎</h4>
 
-        {/* Search bar */}
+        {/* Search bar (DESKTOP) */}
         <form
           style={{
             display: "flex",
@@ -198,7 +222,245 @@ function SearchPage() {
           }}
         >
           <input
-            placeholder="Search by title..."
+            placeholder="Search services..."
+            autoComplete="off"
+            id="sidebar-search"
+          />
+          <button
+            type="submit"
+            className="sidebar-category"
+            style={{ margin: "0" }}
+            id="search-button"
+            disabled={loading}
+          >
+            Search
+          </button>
+        </form>
+
+        <hr></hr>
+
+        {/* Sort by */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <h5>Sort By</h5>
+          <select
+            className="sidebar-category"
+            style={{ width: "100%" }}
+            onChange={(e) => fetchOrdering(e.target.value)}
+          >
+            <option value="none">None</option>
+            <option value="+pricing">Price (Low to High)</option>
+            <option value="-pricing">Price (High to Low)</option>
+            <option value="+average_ratings">Ratings (Low to High)</option>
+            <option value="-average_ratings">Ratings (High to Low)</option>
+          </select>
+        </div>
+
+        <hr></hr>
+
+        {/* Category filter */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <h5>Categories</h5>
+          <button
+            className={`sidebar-category ${category === "all" ? "active" : ""}`}
+            id="all"
+            onClick={() => fetchCategory("all")}
+          >
+            All
+          </button>
+          <button
+            className={`sidebar-category ${
+              category === "automotive" ? "active" : ""
+            }`}
+            id="automotive"
+            onClick={() => fetchCategory("automotive")}
+          >
+            Automotive
+          </button>
+          <button
+            className={`sidebar-category ${
+              category === "arts" ? "active" : ""
+            }`}
+            id="arts"
+            onClick={() => fetchCategory("arts")}
+          >
+            Arts
+          </button>
+          <button
+            className={`sidebar-category ${
+              category === "beauty" ? "active" : ""
+            }`}
+            id="beauty"
+            onClick={() => fetchCategory("beauty")}
+          >
+            Beauty
+          </button>
+          <button
+            className={`sidebar-category ${
+              category === "cleaning" ? "active" : ""
+            }`}
+            id="cleaning"
+            onClick={() => fetchCategory("cleaning")}
+          >
+            Cleaning
+          </button>
+          <button
+            className={`sidebar-category ${
+              category === "clothing" ? "active" : ""
+            }`}
+            id="clothing"
+            onClick={() => fetchCategory("clothing")}
+          >
+            Clothing
+          </button>
+          <button
+            className={`sidebar-category ${
+              category === "deliveries" ? "active" : ""
+            }`}
+            id="deliveries"
+            onClick={() => fetchCategory("deliveries")}
+          >
+            Deliveries
+          </button>
+          <button
+            className={`sidebar-category ${
+              category === "miscellaneous" ? "active" : ""
+            }`}
+            id="miscellaneous"
+            onClick={() => fetchCategory("miscellaneous")}
+          >
+            Miscellaneous
+          </button>
+          <button
+            className={`sidebar-category ${
+              category === "pets" ? "active" : ""
+            }`}
+            id="pets"
+            onClick={() => fetchCategory("pets")}
+          >
+            Pets
+          </button>
+        </div>
+
+        <hr></hr>
+
+        {/* Location filter */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <h5>Location</h5>
+          <button
+            className={`sidebar-category ${location === "all" ? "active" : ""}`}
+            id="all"
+            onClick={() => fetchLocation("all")}
+          >
+            All
+          </button>
+          <button
+            className={`sidebar-category ${
+              location === "campus" ? "active" : ""
+            }`}
+            id="campus"
+            onClick={() => fetchLocation("campus")}
+          >
+            Campus
+          </button>
+          <button
+            className={`sidebar-category ${location === "acc" ? "active" : ""}`}
+            id="acc"
+            onClick={() => fetchLocation("acc")}
+          >
+            ACC
+          </button>
+          <button
+            className={`sidebar-category ${location === "utc" ? "active" : ""}`}
+            id="utc"
+            onClick={() => fetchLocation("utc")}
+          >
+            UTC
+          </button>
+          <button
+            className={`sidebar-category ${
+              location === "other" ? "active" : ""
+            }`}
+            id="other"
+            onClick={() => fetchLocation("other")}
+          >
+            Other
+          </button>
+        </div>
+      </div>
+
+      {/* Sidebar (MOBILE - click to expand) */}
+      <div
+        className="col-10 sidebar"
+        style={{
+          padding: "2vh 2vw",
+          overflowY: "auto",
+          maxHeight: "90vh",
+          position: "fixed",
+          top: "10vh",
+          right: showingBrowse ? 0 : "-125vw",
+          height: "500vh",
+          color: "white",
+          display: MOBILE ? "block" : "none",
+          boxShadow: MOBILE
+            ? "0 0 50px rgba(0, 0, 0, 0.5)"
+            : "0 0 2px rgba(0, 0, 0, 0.5)",
+          transition: "right 0.5s ease-in-out",
+        }}
+      >
+        {/* Click button to expand */}
+        <img
+          src={showingBrowse ? closeBrowse : openBrowse}
+          alt="Open"
+          style={{
+            display: MOBILE ? "block" : "none",
+            position: "fixed",
+            bottom: "5vh",
+            right: "5vw",
+            borderRadius: "50%",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+            border: "none",
+            width: "auto",
+            height: "10vh",
+          }}
+          onClick={handleMobileBrowseClick}
+        ></img>
+
+        <h4>Browse 🔎</h4>
+
+        {/* Search bar (MOBILE) */}
+        <form
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "stretch",
+            gap: "0.5vw",
+          }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            fetchQuery();
+          }}
+        >
+          <input
+            placeholder="Search services..."
             autoComplete="off"
             id="sidebar-search"
           />

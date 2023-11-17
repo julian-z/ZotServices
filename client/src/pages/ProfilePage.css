@@ -12,16 +12,34 @@
     justify-content: center;
 
     background-color: rgb(48, 48, 48);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
     padding: 2vh 2vw 3vh 2vw;
     width: 100%;
 }
 
 .profile-page-services {
+    /* background-color: rgb(8, 68, 114); */
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding: 2vh 2vw
+    padding: 2vh 2vw;
+    min-height: 100vh;
+}
+
+#profile-pic {
+    width: 20vw;
+}
+
+/* MOBILE DEVICES */
+@media (max-width: 768px) {
+    .profile-page-details {
+        flex-direction: column;
+    }
+    
+    #profile-pic {
+        width: auto;
+        height: 50vh;
+    }
 }
