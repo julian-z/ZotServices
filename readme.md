@@ -1,5 +1,18 @@
-# WebJam 2023
+![](https://github.com/julian-z/ZotServices/blob/main/client/src/static/zotservices.png)
 
-- Julian Zulfikar, Simon Cao, Manjot Singh, Alvin Phan
+## Meet Our Team
 
-## LETS GOOOOOOOOOOOOOOOOOOOOO
+- Julian Zulfikar: Front-end Developer
+- Simon Cao: Full-stack Developer
+- Manjot Singh: Back-end Developer
+- Alvin Phan: Back-end Developer
+
+## Tech Stack
+
+- Backend
+  - Python
+  - Django
+  - SQLite
+- Frontend
+  - React
+  - Bootstrap
