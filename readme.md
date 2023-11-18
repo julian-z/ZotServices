@@ -49,9 +49,10 @@ cd venv
 cd Scripts
 activate
 ```
-Navigate to ZotServicesAPI and run the Django server:
+Navigate to ZotServicesAPI, install the dependencies and run the Django server:
 ```
 cd ZotServicesAPI
+pip install -r requirements.txt
 python manage.py runserver
 ```
 The backend will now be hosted on port 8000 of your localhost!
