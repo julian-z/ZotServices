@@ -18,13 +18,15 @@ Developed for UCI's Webjam 2023.
 ## Screenshots 🎥
 As of 11/17 (our WebJam submission):
 ### Search
-![Search Page (Desktop)](https://github.com/julian-z/ZotServices/blob/main/readme/search.png) ![Search Page (Mobile)](https://github.com/julian-z/ZotServices/blob/main/readme/searchmobile.gif)
+![Search Page (Desktop)](https://github.com/julian-z/ZotServices/blob/main/readme/search.png){: style="height:700px"}
+![Search Page (Mobile)](https://github.com/julian-z/ZotServices/blob/main/readme/searchmobile.gif){: style="height:700px"}
 
 ### Service
-![Service Page (1)](https://github.com/julian-z/ZotServices/blob/main/readme/service1.png) ![Service Page (2)](https://github.com/julian-z/ZotServices/blob/main/readme/service2.png)
+![Service Page (1)](https://github.com/julian-z/ZotServices/blob/main/readme/service1.png){: style="height:700px"}
+![Service Page (2)](https://github.com/julian-z/ZotServices/blob/main/readme/service2.png){: style="height:700px"}
 
 ### Profile
-![Profile Page (1)](https://github.com/julian-z/ZotServices/blob/main/readme/profile.png)
+![Profile Page (1)](https://github.com/julian-z/ZotServices/blob/main/readme/profile.png){: style="height:700px"}
 
 ## Tech Stack 🤖
 
