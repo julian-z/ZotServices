@@ -23,10 +23,7 @@ Desktop | Mobile
 ![Search Page (Desktop)](https://github.com/julian-z/ZotServices/blob/main/readme/search.png)  |  ![Search Page (Mobile)](https://github.com/julian-z/ZotServices/blob/main/readme/searchmobile.gif)
 
 ### Service
-<div style="display: flex; justify-content: space-between;">
-  ![Service Page (1)](https://github.com/julian-z/ZotServices/blob/main/readme/service1.png)
-  ![Service Page (2)](https://github.com/julian-z/ZotServices/blob/main/readme/service2.png)
-</div>
+![Service Page (1)](https://github.com/julian-z/ZotServices/blob/main/readme/service1.png) ![Service Page (2)](https://github.com/julian-z/ZotServices/blob/main/readme/service2.png)
 
 ### Profile
 ![Profile Page (1)](https://github.com/julian-z/ZotServices/blob/main/readme/profile.png)
